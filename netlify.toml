@@ -1,24 +1,10 @@
-# 리포지토리 루트: ./netlify.toml
 [build]
-# 모노레포 하위 폴더를 베이스로 삼음
-base = "app/converter-service"
-# 프론트 빌드가 없으면 패키지 설치만. 있다면 "npm ci && npm run build"
-command = "pnpm install --frozen-lockfile"
-# 공개 배포 디렉터리(베이스 기준 상대경로)
-publish = "public"
-
-# 커밋 변경이 이 폴더에 없으면 빌드 스킵(옵션)
-ignore = "git diff --quiet HEAD^ HEAD app/converter-service/"
+publish = "app/convert-service"
 
 [functions]
-# netlify/functions 경로는 base 기준
-directory = "netlify/functions"
-node_bundler = "esbuild"
-# sharp는 네이티브 모듈 → 외부 모듈로 번들
-external_node_modules = ["sharp"]
+directory = "app/convert-service/netlify/functions"
 
-[build.environment]
-# Node 버전 고정(필요 시)
-NODE_VERSION = "22"
-NPM_FLAGS = "--version"
-PNPM_VERSION = "10.14.0"
+[dev]
+framework = "#static"
+port = 8888
+publish = "app/convert-service"

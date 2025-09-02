@@ -5,9 +5,9 @@
   "description": "WebP Image Conversion Service",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon --config nodemon.json",
-    "build": "echo 'No build required for this service'",
+    "dev": "vite",
+    "dev:netlify": "netlify dev",
+    "build": "vite build",
     "test": "echo 'No tests configured yet'"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "sharp": "^0.33.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "vite": "^7.1.4"
   }
 }

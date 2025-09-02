@@ -3,3 +3,5 @@ node_modules/
 pnpm-debug.log*
 app/*/uploads/
 app/*/converted/
+# Local Netlify folder
+.netlify

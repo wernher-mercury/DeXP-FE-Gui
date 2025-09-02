@@ -4,6 +4,7 @@
   "private": true,
   "description": "GUI Repository with multiple services",
   "scripts": {
+    "convert": "pnpm --filter @gui/convert-service",
     "dev": "pnpm --filter @gui/convert-service dev",
     "dev:convert": "pnpm --filter @gui/convert-service dev",
     "start:convert": "pnpm --filter @gui/convert-service start",
