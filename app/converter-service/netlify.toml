@@ -1,0 +1,8 @@
+[build]
+command = "npm ci"      # 프론트엔드 빌드가 없으면 이대로. 있다면 npm ci && npm run build
+publish = "public"      # 정적 배포 디렉토리
+
+[functions]
+node_bundler = "esbuild"
+external_node_modules = ["sharp"]     # sharp는 네이티브 바이너리라 외부 모듈로 처리
+included_files = []                   # 필요 시 추가

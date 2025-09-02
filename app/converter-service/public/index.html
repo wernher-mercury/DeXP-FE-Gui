@@ -2,7 +2,10 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>이미지 → WebP 변환 서비스</title>
     <style>
       * {
@@ -12,8 +15,7 @@
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
         padding: 20px;
@@ -66,11 +68,7 @@
         text-align: center;
         transition: all 0.3s ease;
         cursor: pointer;
-        background: linear-gradient(
-          135deg,
-          rgba(102, 126, 234, 0.05),
-          rgba(118, 75, 162, 0.05)
-        );
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
         position: relative;
       }
 
@@ -81,11 +79,7 @@
       }
 
       .upload-area.dragover {
-        background: linear-gradient(
-          135deg,
-          rgba(102, 126, 234, 0.15),
-          rgba(118, 75, 162, 0.15)
-        );
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
         border-color: #764ba2;
         transform: scale(1.02);
       }
@@ -103,7 +97,7 @@
         font-weight: 500;
       }
 
-      input[type="file"] {
+      input[type='file'] {
         display: none;
       }
 
@@ -133,7 +127,7 @@
         font-size: 1.2em;
       }
 
-      input[type="range"] {
+      input[type='range'] {
         width: 100%;
         height: 6px;
         border-radius: 3px;
@@ -142,7 +136,7 @@
         -webkit-appearance: none;
       }
 
-      input[type="range"]::-webkit-slider-thumb {
+      input[type='range']::-webkit-slider-thumb {
         -webkit-appearance: none;
         width: 20px;
         height: 20px;
@@ -370,19 +364,32 @@
       <h1>🎨 Image to WebP Converter</h1>
       <p class="subtitle">Node.js 기반 고성능 이미지 변환 서비스</p>
 
-      <div class="upload-area" id="uploadArea">
+      <div
+        class="upload-area"
+        id="uploadArea"
+      >
         <div class="upload-icon">📁</div>
         <div class="upload-text">이미지를 드래그하거나 클릭하여 선택</div>
-        <p style="color: #888; margin-top: 10px">
-          JPG, PNG, GIF, BMP 지원 (최대 20개, 각 50MB)
-        </p>
-        <input type="file" id="fileInput" multiple accept="image/*" />
+        <p style="color: #888; margin-top: 10px">JPG, PNG, GIF, BMP 지원 (최대 20개, 각 50MB)</p>
+        <input
+          type="file"
+          id="fileInput"
+          multiple
+          accept="image/*"
+        />
       </div>
 
-      <div class="quality-control" id="qualityControl">
+      <div
+        class="quality-control"
+        id="qualityControl"
+      >
         <div class="quality-label">
           <span>변환 품질</span>
-          <span class="quality-value" id="qualityValue">85%</span>
+          <span
+            class="quality-value"
+            id="qualityValue"
+            >85%</span
+          >
         </div>
         <input
           type="range"
@@ -394,33 +401,65 @@
         />
       </div>
 
-      <button class="convert-btn" id="convertBtn" onclick="convertImages()">
+      <button
+        class="convert-btn"
+        id="convertBtn"
+        onclick="convertImages()"
+      >
         🚀 WebP로 변환하기
       </button>
 
-      <div class="loading" id="loading">
+      <div
+        class="loading"
+        id="loading"
+      >
         <div class="spinner"></div>
         <p style="margin-top: 20px; color: #666">이미지를 변환중입니다...</p>
       </div>
 
-      <div class="error-message" id="errorMessage"></div>
-      <div class="success-message" id="successMessage"></div>
+      <div
+        class="error-message"
+        id="errorMessage"
+      ></div>
+      <div
+        class="success-message"
+        id="successMessage"
+      ></div>
 
-      <div class="stats" id="stats">
+      <div
+        class="stats"
+        id="stats"
+      >
         <div class="stat-item">
-          <span class="stat-value" id="totalFiles">0</span>
+          <span
+            class="stat-value"
+            id="totalFiles"
+            >0</span
+          >
           <span class="stat-label">변환된 파일</span>
         </div>
         <div class="stat-item">
-          <span class="stat-value" id="totalOriginal">0</span>
+          <span
+            class="stat-value"
+            id="totalOriginal"
+            >0</span
+          >
           <span class="stat-label">원본 크기</span>
         </div>
         <div class="stat-item">
-          <span class="stat-value" id="totalConverted">0</span>
+          <span
+            class="stat-value"
+            id="totalConverted"
+            >0</span
+          >
           <span class="stat-label">변환 후 크기</span>
         </div>
         <div class="stat-item">
-          <span class="stat-value" id="totalSaved">0%</span>
+          <span
+            class="stat-value"
+            id="totalSaved"
+            >0%</span
+          >
           <span class="stat-label">평균 절감률</span>
         </div>
       </div>
@@ -433,74 +472,73 @@
         📥 모든 파일 다운로드 (ZIP)
       </button>
 
-      <div class="image-grid" id="imageGrid"></div>
+      <div
+        class="image-grid"
+        id="imageGrid"
+      ></div>
     </div>
 
     <script>
       let selectedFiles = [];
       let convertedFiles = [];
 
-      const uploadArea = document.getElementById("uploadArea");
-      const fileInput = document.getElementById("fileInput");
-      const imageGrid = document.getElementById("imageGrid");
-      const qualityControl = document.getElementById("qualityControl");
-      const qualitySlider = document.getElementById("qualitySlider");
-      const qualityValue = document.getElementById("qualityValue");
-      const convertBtn = document.getElementById("convertBtn");
-      const loading = document.getElementById("loading");
-      const stats = document.getElementById("stats");
-      const downloadAllBtn = document.getElementById("downloadAllBtn");
-      const errorMessage = document.getElementById("errorMessage");
-      const successMessage = document.getElementById("successMessage");
+      const uploadArea = document.getElementById('uploadArea');
+      const fileInput = document.getElementById('fileInput');
+      const imageGrid = document.getElementById('imageGrid');
+      const qualityControl = document.getElementById('qualityControl');
+      const qualitySlider = document.getElementById('qualitySlider');
+      const qualityValue = document.getElementById('qualityValue');
+      const convertBtn = document.getElementById('convertBtn');
+      const loading = document.getElementById('loading');
+      const stats = document.getElementById('stats');
+      const downloadAllBtn = document.getElementById('downloadAllBtn');
+      const errorMessage = document.getElementById('errorMessage');
+      const successMessage = document.getElementById('successMessage');
 
       // 파일 선택
-      uploadArea.addEventListener("click", () => fileInput.click());
+      uploadArea.addEventListener('click', () => fileInput.click());
 
-      fileInput.addEventListener("change", (e) => {
+      fileInput.addEventListener('change', (e) => {
         handleFiles(e.target.files);
       });
 
       // 드래그 앤 드롭
-      uploadArea.addEventListener("dragover", (e) => {
+      uploadArea.addEventListener('dragover', (e) => {
         e.preventDefault();
-        uploadArea.classList.add("dragover");
+        uploadArea.classList.add('dragover');
       });
 
-      uploadArea.addEventListener("dragleave", () => {
-        uploadArea.classList.remove("dragover");
+      uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('dragover');
       });
 
-      uploadArea.addEventListener("drop", (e) => {
+      uploadArea.addEventListener('drop', (e) => {
         e.preventDefault();
-        uploadArea.classList.remove("dragover");
+        uploadArea.classList.remove('dragover');
         handleFiles(e.dataTransfer.files);
       });
 
       // 품질 슬라이더
-      qualitySlider.addEventListener("input", (e) => {
-        qualityValue.textContent = e.target.value + "%";
+      qualitySlider.addEventListener('input', (e) => {
+        qualityValue.textContent = e.target.value + '%';
       });
 
       function handleFiles(files) {
-        selectedFiles = Array.from(files).filter((file) =>
-          file.type.startsWith("image/")
-        );
+        selectedFiles = Array.from(files).filter((file) => file.type.startsWith('image/'));
 
         if (selectedFiles.length > 0) {
-          qualityControl.style.display = "block";
-          convertBtn.style.display = "block";
+          qualityControl.style.display = 'block';
+          convertBtn.style.display = 'block';
 
           // 미리보기 표시
-          imageGrid.innerHTML = "";
+          imageGrid.innerHTML = '';
           selectedFiles.forEach((file) => {
             const reader = new FileReader();
             reader.onload = (e) => {
-              const preview = document.createElement("div");
-              preview.className = "image-item";
+              const preview = document.createElement('div');
+              preview.className = 'image-item';
               preview.innerHTML = `
-                            <img src="${e.target.result}" alt="${
-                file.name
-              }" class="image-preview">
+                            <img src="${e.target.result}" alt="${file.name}" class="image-preview">
                             <div class="image-info">
                                 <div class="image-name">${file.name}</div>
                                 <div class="image-sizes">
@@ -520,19 +558,19 @@
         if (selectedFiles.length === 0) return;
 
         convertBtn.disabled = true;
-        loading.style.display = "block";
-        errorMessage.style.display = "none";
-        successMessage.style.display = "none";
+        loading.style.display = 'block';
+        errorMessage.style.display = 'none';
+        successMessage.style.display = 'none';
 
         const formData = new FormData();
         selectedFiles.forEach((file) => {
-          formData.append("images", file);
+          formData.append('images', file);
         });
-        formData.append("quality", qualitySlider.value);
+        formData.append('quality', qualitySlider.value);
 
         try {
-          const response = await fetch("/api/convert", {
-            method: "POST",
+          const response = await fetch('/.netlify/functions/convert', {
+            method: 'POST',
             body: formData,
           });
 
@@ -543,50 +581,42 @@
             displayConvertedImages(result.files);
             updateStats(result.files);
             successMessage.textContent = `✅ ${result.files.length}개의 이미지가 성공적으로 변환되었습니다!`;
-            successMessage.style.display = "block";
-            downloadAllBtn.style.display = "block";
+            successMessage.style.display = 'block';
+            downloadAllBtn.style.display = 'block';
           } else {
-            throw new Error(result.error || "변환 실패");
+            throw new Error(result.error || '변환 실패');
           }
         } catch (error) {
-          console.error("Error:", error);
+          console.error('Error:', error);
           errorMessage.textContent = `❌ 오류: ${error.message}`;
-          errorMessage.style.display = "block";
+          errorMessage.style.display = 'block';
         } finally {
           convertBtn.disabled = false;
-          loading.style.display = "none";
+          loading.style.display = 'none';
         }
       }
 
       function displayConvertedImages(files) {
-        imageGrid.innerHTML = "";
+        imageGrid.innerHTML = '';
 
         files.forEach((file) => {
-          const imageItem = document.createElement("div");
-          imageItem.className = "image-item";
+          const imageItem = document.createElement('div');
+          imageItem.className = 'image-item';
 
-          const reductionClass = file.reduction > 0 ? "positive" : "negative";
+          const reductionClass = file.reduction > 0 ? 'positive' : 'negative';
 
           imageItem.innerHTML = `
-                    <img src="${file.url}" alt="${
-            file.originalName
-          }" class="image-preview">
+                    <img src="${file.url}" alt="${file.originalName}" class="image-preview">
                     <div class="image-info">
-                        <div class="image-name" title="${file.originalName}">${
-            file.originalName
-          }</div>
+                        <div class="image-name" title="${file.originalName}">${file.originalName}</div>
                         <div class="image-sizes">
                             원본: ${formatFileSize(file.originalSize)}<br>
                             WebP: ${formatFileSize(file.convertedSize)}
                         </div>
                         <span class="size-reduction ${reductionClass}">
-                            ${file.reduction > 0 ? "↓" : "↑"} ${Math.abs(
-            file.reduction
-          )}%
+                            ${file.reduction > 0 ? '↓' : '↑'} ${Math.abs(file.reduction)}%
                         </span>
-                        <button class="download-btn" onclick="downloadFile('${
-                          file.url
-                        }', '${file.convertedName}')">
+                        <button class="download-btn" onclick="downloadFile('${file.url}', '${file.convertedName}')">
                             다운로드
                         </button>
                     </div>
@@ -597,33 +627,26 @@
       }
 
       function updateStats(files) {
-        stats.style.display = "block";
+        stats.style.display = 'block';
 
         const totalOriginal = files.reduce((sum, f) => sum + f.originalSize, 0);
-        const totalConverted = files.reduce(
-          (sum, f) => sum + f.convertedSize,
-          0
-        );
-        const avgReduction =
-          files.reduce((sum, f) => sum + f.reduction, 0) / files.length;
+        const totalConverted = files.reduce((sum, f) => sum + f.convertedSize, 0);
+        const avgReduction = files.reduce((sum, f) => sum + f.reduction, 0) / files.length;
 
-        document.getElementById("totalFiles").textContent = files.length;
-        document.getElementById("totalOriginal").textContent =
-          formatFileSize(totalOriginal);
-        document.getElementById("totalConverted").textContent =
-          formatFileSize(totalConverted);
-        document.getElementById("totalSaved").textContent =
-          Math.round(avgReduction) + "%";
+        document.getElementById('totalFiles').textContent = files.length;
+        document.getElementById('totalOriginal').textContent = formatFileSize(totalOriginal);
+        document.getElementById('totalConverted').textContent = formatFileSize(totalConverted);
+        document.getElementById('totalSaved').textContent = Math.round(avgReduction) + '%';
       }
 
       function formatFileSize(bytes) {
-        if (bytes < 1024) return bytes + " B";
-        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-        return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
       }
 
       function downloadFile(url, filename) {
-        const a = document.createElement("a");
+        const a = document.createElement('a');
         a.href = url;
         a.download = filename;
         a.click();
@@ -633,10 +656,10 @@
         if (convertedFiles.length === 0) return;
 
         try {
-          const response = await fetch("/api/download-zip", {
-            method: "POST",
+          const response = await fetch('/.netlify/functions/download-zip', {
+            method: 'POST',
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
             body: JSON.stringify({
               files: convertedFiles.map((f) => f.convertedName),
@@ -646,16 +669,16 @@
           if (response.ok) {
             const blob = await response.blob();
             const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
+            const a = document.createElement('a');
             a.href = url;
-            a.download = "webp_images.zip";
+            a.download = 'webp_images.zip';
             a.click();
             URL.revokeObjectURL(url);
           }
         } catch (error) {
-          console.error("ZIP 다운로드 오류:", error);
-          errorMessage.textContent = "❌ ZIP 다운로드 중 오류가 발생했습니다.";
-          errorMessage.style.display = "block";
+          console.error('ZIP 다운로드 오류:', error);
+          errorMessage.textContent = '❌ ZIP 다운로드 중 오류가 발생했습니다.';
+          errorMessage.style.display = 'block';
         }
       }
     </script>
