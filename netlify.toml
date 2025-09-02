@@ -1,10 +1,18 @@
 [build]
+# 정적 사이트 루트: index.html 이 있는 곳
 publish = "app/convert-service"
+# Netlify Functions (API 핸들러) 경로
+functions = "app/convert-service/netlify/functions"
 
 [functions]
+# Functions 빌드 옵션
 directory = "app/convert-service/netlify/functions"
+node_bundler = "esbuild"
+# sharp 같은 네이티브 모듈을 번들에서 제외
+external_node_modules = ["sharp"]
 
 [dev]
+# 로컬 개발 시 정적 루트
 framework = "#static"
-port = 8888
 publish = "app/convert-service"
+port = 8888
