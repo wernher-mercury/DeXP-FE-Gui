@@ -1,0 +1,6 @@
+packages:
+  - "app/*"
+  - "!**/node_modules"
+  - "!**/dist"
+  - "!**/converted"
+  - "!**/uploads"

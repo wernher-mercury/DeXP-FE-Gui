@@ -1,0 +1,22 @@
+{
+  "name": "gui",
+  "version": "0.0.1",
+  "private": true,
+  "description": "GUI Repository with multiple services",
+  "scripts": {
+    "dev": "pnpm --filter @gui/convert-service dev",
+    "dev:convert": "pnpm --filter @gui/convert-service dev",
+    "start:convert": "pnpm --filter @gui/convert-service start",
+    "build:convert": "pnpm --filter @gui/convert-service build",
+    "install:all": "pnpm install",
+    "clean": "rm -rf node_modules app/*/node_modules pnpm-lock.yaml",
+    "clean:install": "pnpm run clean && pnpm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=22.11.0"
+  }
+}
